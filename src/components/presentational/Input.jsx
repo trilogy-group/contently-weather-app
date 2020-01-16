@@ -4,7 +4,7 @@ import React from 'react';
 //as well as event handler func.
 const Input = ({ label, placeholder, handleChange, onSubmit }) => {
   return (
-    <>
+    <div>
       <label className="label">{label}</label>
       <input
         className="input is-rounded"
@@ -14,7 +14,7 @@ const Input = ({ label, placeholder, handleChange, onSubmit }) => {
         onKeyDown={e => e.key === 'Enter' && onSubmit()}
       />
       <br />
-    </>
+    </div>
   );
 };
 

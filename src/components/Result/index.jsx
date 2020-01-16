@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Context } from '../../Context';
+import Loading from '../presentational/Loading.jsx';
 import Weather from './Weather.jsx';
 import FiveDay from './FiveDay.jsx';
 
@@ -10,15 +11,15 @@ const Result = () => {
   const { loading, weatherData } = useContext(Context);
 
   return (
-    <div>
-      {loading ? <p>Loading ...</p> : null}
-      {weatherData.length > 0 && (
+    <>
+      <Loading loading={loading} />
+      {weatherData.length > 0 && !loading ? (
         <>
           <Weather currentDay={weatherData[0]} />
           <FiveDay fiveDayForecast={weatherData[1]} />
         </>
-      )}
-    </div>
+      ) : null}
+    </>
   );
 };
 

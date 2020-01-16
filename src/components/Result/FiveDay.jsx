@@ -22,8 +22,10 @@ const FiveDay = ({ fiveDayForecast }) => {
 
     return (
       <div className="section">
-        <h3 className="is-size-3">The next 5 days:</h3>
-        <br />
+        <div>
+          <h3 className="is-size-3">The next 5 days:</h3>
+          <br />
+        </div>
         <div className="columns">{elements}</div>
       </div>
     );

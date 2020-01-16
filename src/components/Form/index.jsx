@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
-import { Context } from '../../Context';
 import Input from '../presentational/Input.jsx';
+import Error from '../presentational/Error.jsx';
+import { Context } from '../../Context';
 import fetchWeather from '../../utils';
 
 const Form = () => {
@@ -14,9 +15,16 @@ const Form = () => {
     setInput(e.target.value);
   };
 
+  // Simulate a slower API call for better UX.
+  const slowDown = cb => {
+    setTimeout(() => {
+      cb();
+      return setLoading(false);
+    }, 500);
+  };
+
   // Call API when user submits query.
   const handleSearch = async () => {
-    setError(false);
     setLoading(true);
 
     const res = await fetchWeather(input);
@@ -24,28 +32,35 @@ const Form = () => {
     // If API call is successful, store weather data in state.
     // If it is not successful, throw error.
     if (res && res[0].cod !== 200) {
-      setError(true);
+      slowDown(() => setError(true));
     } else {
-      setWeatherData(res);
+      // Set Weather data with callback function. Also set error to false
+      // in case user threw an error on a previous search.
+      slowDown(() => {
+        setWeatherData(res);
+        setError(false);
+      });
     }
 
-    setLoading(false);
+    // Slow down the loading component for better UX.
   };
 
   return (
     <div className="section">
-      <h2 className="is-size-2">Weather</h2>
-      <Input
-        handleChange={handleChange}
-        onSubmit={handleSearch}
-        label={'Search your city:'}
-        placeholder={'New York City'}
-      />
-      <br />
-      <button className="button" onClick={handleSearch}>
-        Go!
-      </button>
-      {error && <p className="has-text-danger">Oops, an error occurred!</p>}
+      <div>
+        <h2 className="is-size-2">Weather</h2>
+        <Input
+          handleChange={handleChange}
+          onSubmit={handleSearch}
+          label={'Search your city:'}
+          placeholder={'New York City'}
+        />
+        <br />
+        <button className="button" onClick={handleSearch}>
+          Go!
+        </button>
+      </div>
+      <Error error={error} />
     </div>
   );
 };

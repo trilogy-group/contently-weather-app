@@ -9,18 +9,23 @@ const DisplayResults = ({ data }) => {
     const { weather, main, dt_txt } = data;
 
     return (
-      <>
-        {/* Render date if fiveDay is true. */}
+      <div>
         <ul>
-          {dt_txt && <li>{dt_txt.substring(5, 10)}</li>}
+          <p> {dt_txt && <li>{dt_txt.substring(5, 10)}</li>}</p>
           <li>
             <Image icon={weather[0].icon} />
           </li>
-          <li>{weather[0].description}</li>
-          <li>Temperature: {convert(main.temp)}</li>
-          <li>Feels like: {convert(main.feels_like)}</li>
+          <li>
+            <p>{weather[0].description}</p>
+          </li>
+          <li>
+            <p> Temperature: {convert(main.temp)}</p>
+          </li>
+          <li>
+            <p> Feels like: {convert(main.feels_like)}</p>
+          </li>
         </ul>
-      </>
+      </div>
     );
   }
 };
