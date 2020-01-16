@@ -1,5 +1,5 @@
 import React from 'react';
-import DisplayResults from './DisplayResults';
+import DisplayResults from './DisplayResults.jsx';
 
 // This functional component maps through the five day forecast
 // and renders the data through its child component.

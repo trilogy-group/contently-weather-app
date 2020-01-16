@@ -1,5 +1,5 @@
 // Convert to Fahrenheit.
-const convert = num => {
+const convertFromKelvin = num => {
   // Formula Kelvin to F.
   const numToF = (num - 273.15) * 1.8 + 32;
   // Charcode for Degree symbol.
@@ -8,4 +8,4 @@ const convert = num => {
   return `${numToF.toFixed()}${degrees}`;
 };
 
-export default convert;
+export default convertFromKelvin;

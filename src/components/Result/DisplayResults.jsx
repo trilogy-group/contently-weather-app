@@ -1,6 +1,6 @@
 import React from 'react';
-import Image from './Image';
-import convert from '../../convert';
+import Image from './Image.jsx';
+import convertFromKelvin from '../../convertFromKelvin';
 
 // This reusable component renders data from the API.
 
@@ -19,10 +19,10 @@ const DisplayResults = ({ data }) => {
             <p>{weather[0].description}</p>
           </li>
           <li>
-            <p> Temperature: {convert(main.temp)}</p>
+            <p> Temperature: {convertFromKelvin(main.temp)}</p>
           </li>
           <li>
-            <p> Feels like: {convert(main.feels_like)}</p>
+            <p> Feels like: {convertFromKelvin(main.feels_like)}</p>
           </li>
         </ul>
       </div>

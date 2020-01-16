@@ -1,5 +1,5 @@
 import React from 'react';
-import DisplayResults from './DisplayResults';
+import DisplayResults from './DisplayResults.jsx';
 
 // This functional component renders the current weather.
 // I've created this instead of rendering the results in Index

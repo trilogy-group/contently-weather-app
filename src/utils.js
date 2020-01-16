@@ -1,5 +1,5 @@
 const fetchWeather = async cityName => {
-  const API_KEY = 'd29e9cce44012ae03806fcd9edc39a4e';
+  const API_KEY = process.env.REACT_APP_OPEN_WEATHER_API_KEY;
 
   try {
     // Query API for current day forecast and 5 day/3 hour forecast.
