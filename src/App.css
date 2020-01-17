@@ -1,25 +1,48 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+input[type="text"] {
+  background-color: transparent;
+  border: 0;
+  border-bottom: solid 1px #dda1a1;
+  width: 30%;
+  padding-bottom: 4px;
+  color: rgb(0, 0, 0) !important;
+  font-weight: strong;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  margin-right: 20px;
+  font-size: 20px;
+  outline: none;
+
 }
 
-#root {
-  text-align: center;
-  min-height: 100vh;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  background-image: linear-gradient(
-    to right,
-    rgba(255, 0, 0, 0.5),
-    rgba(255, 255, 0, 0.5)
-  );
-  position: absolute;
-  width: 100%;
+
+button {
+  border: 0;
+  padding: 8px 20px;
+  margin: 0 2px;
+  border-radius: 2px;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  font-size: 15px;
+  cursor: pointer;
+  background-color: #a69feb;
+  color: #fff;
+  font-weight: 100;
+}
+
+button:active {
+  outline: none;
+}
+
+.weather-value{
+  position: relative;
+  top: 200px;
+  left:500px;
+  font-size: 150%;
+}
+
+.Form{
+  position: relative;
+  top: 150px;
+  left:100px;
+  font-size: 150%;
 }
