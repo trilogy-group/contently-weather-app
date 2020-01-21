@@ -3,3 +3,6 @@
 
 # production
 /build
+
+# api_keys
+.env
