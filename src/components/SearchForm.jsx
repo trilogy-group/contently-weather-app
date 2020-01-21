@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { setLocation } from '../store/actions';
+import { fetchWeather } from '../utils';
 
 const Search = props => {
   const handleChange = event => {
@@ -9,7 +10,7 @@ const Search = props => {
   };
 
   const handleSubmit = event => {
-    console.log(' testing submit');
+    props.fetchWeather(props.location);
     event.preventDefault();
   };
 
@@ -37,14 +38,18 @@ const Search = props => {
   );
 };
 
+//adding redux state to props
 const mapStateToProps = state => {
   return {
     location: state.location
   };
 };
 
+//adding redux dispatch functions to props
 const mapDispatchToProps = dispatch => ({
-  setLocation: location => dispatch(setLocation(location))
+  setLocation: location => dispatch(setLocation(location)),
+  fetchWeather: location => dispatch(fetchWeather(location))
 });
 
+//connecting react to redux
 export default connect(mapStateToProps, mapDispatchToProps)(Search);
