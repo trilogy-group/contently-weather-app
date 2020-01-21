@@ -1,7 +1,8 @@
 import React from 'react';
 import { ReactComponent as Logo } from '../images/sun.svg';
 import { Provider } from 'react-redux';
-import SearchFrom from './SearchForm';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Routes from './Routes';
 import Results from './Results';
 import store from '../store';
 import '../App.css';
@@ -15,8 +16,10 @@ function App() {
       </header>
       <div className="main">
         <h1>Weather</h1>
-        <SearchFrom />
-        <Results />
+        <Router>
+          <Routes />
+          <Results />
+        </Router>
       </div>
       <footer />
     </Provider>

@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import '../stylesheets/results.css';
 
 const Results = props => {
   const { current, forecast } = props.weather;
+  const history = useHistory();
+
+  //push history to url
+  useEffect(() => {
+    if (current) {
+      history.push(`/?lat=${current.coord.lat}&lon=${current.coord.lon}`);
+    }
+  }, [current, history]);
 
   return (
     <div className="results-page">
@@ -53,7 +62,8 @@ const Results = props => {
                 valid input is city name with optional 2 digit country code
                 precided by a comma
               </p>
-              <p>example: New York, US</p>
+              <p>example 1: New York</p>
+              <p>example 2: New York, US</p>
             </div>
           ) : (
             <h3>Search for results</h3>

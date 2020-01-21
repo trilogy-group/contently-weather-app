@@ -6,6 +6,7 @@ import '../stylesheets/searchForm.css';
 
 const Search = props => {
   const { location, fetchWeather, setLocation } = props;
+  const { search } = props.history.location;
 
   //handle change of location adding it to redux state
   const handleChange = event => {
@@ -30,6 +31,13 @@ const Search = props => {
       throw error;
     }
   };
+
+  //check for search in history location in url and fetchs weather.
+  useEffect(() => {
+    if (search) {
+      fetchWeather({ historyUrl: search });
+    }
+  }, [search, fetchWeather]);
 
   return (
     <div>

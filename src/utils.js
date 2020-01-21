@@ -8,7 +8,7 @@ export const fetchWeather = location => {
   //const API_KEY = "<INSERT_API_KEY>";
   // TODO: fetch weather forecast from endpoint
   // from https://openweathermap.org/api
-  const { cityName, geo } = location;
+  const { cityName, geo, historyUrl } = location;
   const url = `https://api.openweathermap.org/data/2.5/`;
   let query;
 
@@ -20,7 +20,10 @@ export const fetchWeather = location => {
 
   if (geo) {
     query = `?lat=${geo.lat}&lon=${geo.lon}`;
-    console.log(query);
+  }
+
+  if (historyUrl) {
+    query = historyUrl;
   }
 
   //using a thunk in redux for handling side effects
