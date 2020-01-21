@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import '../stylesheets/results.css';
 
 const Results = props => {
   const { current, forecast } = props.weather;

@@ -9,9 +9,16 @@ import '../App.css';
 function App() {
   return (
     <Provider store={store}>
-      <h1>Weather</h1>
-      <SearchFrom />
-      <Results />
+      <header>
+        <Logo className="logo" />
+        <h1>Weather</h1>
+      </header>
+      <div className="main">
+        <h1>Weather</h1>
+        <SearchFrom />
+        <Results />
+      </div>
+      <footer />
     </Provider>
   );
 }

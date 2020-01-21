@@ -2,21 +2,24 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { setLocation } from '../store/actions';
 import { fetchWeather, getGeoLocation } from '../utils';
+import '../stylesheets/searchForm.css';
 
 const Search = props => {
   const { location, fetchWeather, setLocation } = props;
 
+  //handle change of location adding it to redux state
   const handleChange = event => {
     setLocation(event.target.value);
     event.preventDefault();
   };
 
+  //handle submit for location search
   const handleSubmit = event => {
     fetchWeather({ cityName: location });
     event.preventDefault();
   };
 
-  //function for dispatching via current location
+  //displays weather via browser location
   const currentLocation = async () => {
     try {
       const { coords } = await getGeoLocation();

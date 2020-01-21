@@ -1,0 +1,55 @@
+h3 {
+  color: #00a6c2;
+}
+
+input {
+  padding: 1.5vh 0.75vw;
+  margin: 1%;
+  border: 0.05em solid rgb(110, 110, 110);
+  border-radius: 4px;
+  font-size: 0.6em;
+}
+
+.input-city {
+  min-width: 120px;
+  width: 12vw;
+}
+
+.input-country {
+  min-width: 30px;
+  width: 2vw;
+}
+
+button {
+  font-size: 0.8em;
+  padding: 0.4%;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn-current {
+  color: #00a6c2;
+}
+
+.btn-submit {
+  min-width: 10%;
+  background-color: #00a6c2;
+  color: white;
+  background-position: center;
+  transition: background 0.8s;
+  outline: none;
+}
+
+.btn-submit:hover {
+  background-color: #00a6c2;
+  background: #688885 radial-gradient(circle, transparent 1%, #00a6c2 1%)
+    center/15000%;
+}
+
+.btn-submit:active {
+  background-color: #688885;
+  background-size: 100%;
+  transition: background 0s;
+}
