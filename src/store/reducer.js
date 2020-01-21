@@ -13,7 +13,7 @@ const reducer = (state = initialState, action) => {
     case GOT_WEATHER:
       const weather = action.weather;
       //hash table to record min and max
-      const newForecast = {};
+      const hash = {};
       // array for mapping out forecast elements
       const forecastArray = [];
 
@@ -23,27 +23,27 @@ const reducer = (state = initialState, action) => {
         const min = forecast.main.temp_min;
         const max = forecast.main.temp_max;
         //adding new date to table with min and max
-        if (!(date in newForecast)) {
-          newForecast[date] = {
+        if (!(date in hash)) {
+          hash[date] = {
             min,
             max
           };
         } else {
           //checking other forcasts of same day and updated min and max
-          if (newForecast[date].min > min) {
-            newForecast[date].min = min;
+          if (hash[date].min > min) {
+            hash[date].min = min;
           }
-          if (newForecast[date].max < max) {
-            newForecast[date].max = max;
+          if (hash[date].max < max) {
+            hash[date].max = max;
           }
         }
       });
       //adding forcasts to an array to be sent to state for mapping front end elements
-      for (let date in newForecast) {
+      for (let date in hash) {
         forecastArray.push({
           date: date,
-          min: newForecast[date].min,
-          max: newForecast[date].max
+          min: hash[date].min,
+          max: hash[date].max
         });
       }
       weather.forecast = forecastArray;

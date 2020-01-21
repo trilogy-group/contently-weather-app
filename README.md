@@ -6,11 +6,25 @@ You may be asked to explain your work and pair with a Contently engineer to furt
 
 To submit your homework, please update this README with information about which stories you completed, and submit the features as a pull request. The engineering team will provide feedback via a code review.
 
+## Notes:
+
+Completed 3 user stories (weather, forcast, and url). Implementing Redux was probably not required for a small app such as this, but I am comfortable with it and I wanted to use it. It could be done without Redux though.
+
+## Todos:
+
+- Implement last user story
+- Add button to copy URL to clipboard
+- polish style
+
+## Requirements
+
+API key is stored in ./config/secrets.js which was not included in the repo. Either add this file exporting the API key or comment out the import in line 1 of utils.js and uncomment line 8 editing the API_KEY value.
+
 ## User stories to implement
 
-- [ ] As a user, I would like to search for the current weather in my area
-- [ ] As a user, I would like to see the 5-day forecast
-- [ ] As a user, I would like to share the URL of the weather in my area and see the results
+- [x] As a user, I would like to search for the current weather in my area
+- [x] As a user, I would like to see the 5-day forecast
+- [x] As a user, I would like to share the URL of the weather in my area and see the results
 - [ ] As a user, I would like to toggle between celsius and fahrenheit
 
 ## Getting started
