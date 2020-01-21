@@ -3,7 +3,7 @@ import { LOCATION, GOT_WEATHER, GOT_ERROR } from './types';
 const initialState = {
   location: '',
   weather: {},
-  error: false
+  error: null
 };
 
 const reducer = (state = initialState, action) => {
@@ -48,6 +48,8 @@ const reducer = (state = initialState, action) => {
       }
       weather.forecast = forecastArray;
       return { ...state, weather };
+    case GOT_ERROR:
+      return { ...state, error: action.error };
     default:
       return state;
   }
