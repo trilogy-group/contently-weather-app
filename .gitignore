@@ -3,3 +3,6 @@
 
 # production
 /build
+
+# dev api key
+/config/secrets.js
