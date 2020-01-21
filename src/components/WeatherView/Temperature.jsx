@@ -13,7 +13,7 @@ const HighLowTempSection = styled.section`
 `
 
 const TempScaleSpan = styled.span`
-  color: ${({disabled}) => disabled ? 'blue' : 'white'};
+  color: ${({disabled}) => disabled ? 'black' : 'white'};
   font-size: 32px;
 `
 
