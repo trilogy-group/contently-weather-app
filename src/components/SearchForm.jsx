@@ -1,17 +1,31 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { setLocation } from '../store/actions';
-import { fetchWeather } from '../utils';
+import { fetchWeather, getGeoLocation } from '../utils';
 
 const Search = props => {
+  const { location, fetchWeather, setLocation } = props;
+
   const handleChange = event => {
-    props.setLocation(event.target.value);
+    setLocation(event.target.value);
     event.preventDefault();
   };
 
   const handleSubmit = event => {
-    props.fetchWeather(props.location);
+    fetchWeather({ cityName: location });
     event.preventDefault();
+  };
+
+  //function for dispatching via current location
+  const currentLocation = async () => {
+    try {
+      const { coords } = await getGeoLocation();
+      await fetchWeather({
+        geo: { lat: coords.latitude, lon: coords.longitude }
+      });
+    } catch (error) {
+      throw error;
+    }
   };
 
   return (
@@ -32,7 +46,9 @@ const Search = props => {
         <input className="btn-submit" type="submit" value="Search" />
       </form>
       <div>
-        <button className="btn-current">use current location</button>
+        <button className="btn-current" onClick={currentLocation}>
+          use current location
+        </button>
       </div>
     </div>
   );
