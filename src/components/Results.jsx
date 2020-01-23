@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import Current from './Current';
+import Forecast from './Forcast';
 import '../stylesheets/results.css';
 
 const Results = props => {
@@ -18,40 +20,8 @@ const Results = props => {
     <div className="results-page">
       {current ? (
         <div className="results">
-          <div className="current">
-            <h3>Current Weather in {current.name}:</h3>
-            <img
-              src={`http://openweathermap.org/img/wn/${current.weather[0].icon}@2x.png`}
-              alt={`${current.weather[0].icon}.png`}
-            ></img>
-            <p>{current.weather[0].description.toUpperCase()}</p>
-            <p>
-              Temperature: {current.main.temp}
-              <span>&#176;</span>
-            </p>
-            <p>Wind Speed: {current.wind.speed} mph</p>
-            <p>
-              Wind Chill: {current.main.feels_like} <span>&#176;</span>
-            </p>
-          </div>
-          <div className="forecast">
-            <h3>Forecast:</h3>
-            {forecast.map(forecast => {
-              return (
-                <div key={forecast.date}>
-                  <h5>{forecast.date}</h5>
-                  <p>
-                    Min: {forecast.min}
-                    <span>&#176;</span>
-                  </p>
-                  <p>
-                    Max: {forecast.max}
-                    <span>&#176;</span>
-                  </p>
-                </div>
-              );
-            })}
-          </div>
+          <Current current={current} />
+          <Forecast forecast={forecast} />
         </div>
       ) : (
         <div>

@@ -6,8 +6,8 @@ import SearchForm from './SearchForm';
 const Routes = () => {
   return (
     <Switch>
-      <Route path="/:params" component={SearchForm} />
       <Route exact path="/" component={SearchForm} />
+      <Route path="/:params" component={SearchForm} />
     </Switch>
   );
 };

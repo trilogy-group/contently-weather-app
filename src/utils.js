@@ -8,7 +8,7 @@ export const fetchWeather = location => {
   //const API_KEY = "<INSERT_API_KEY>";
   // TODO: fetch weather forecast from endpoint
   // from https://openweathermap.org/api
-  const { cityName, geo, historyUrl } = location;
+  const { cityName, geo } = location;
   const url = `https://api.openweathermap.org/data/2.5/`;
   let query;
 
@@ -19,11 +19,7 @@ export const fetchWeather = location => {
   }
 
   if (geo) {
-    query = `?lat=${geo.lat}&lon=${geo.lon}`;
-  }
-
-  if (historyUrl) {
-    query = historyUrl;
+    query = geo;
   }
 
   //using a thunk in redux for handling side effects
@@ -51,18 +47,22 @@ export const fetchWeather = location => {
 
 //this function gets the current location from the browser and fetches the weather based on lat and long
 export const getGeoLocation = async () => {
-  return new Promise((resolve, reject) => {
+  let query;
+  await new Promise((resolve, reject) => {
     if (!navigator.geolocation) {
-      reject(new Error('Not Supported'));
+      reject(() => {
+        alert('Browser Location not Supported');
+      });
     }
     navigator.geolocation.getCurrentPosition(
       position => {
         resolve(position);
-        return `q=lat=${position.coords.latitude}+lon=${position.coords.longitude}`;
+        query = `?lat=${position.coords.latitude}&lon=${position.coords.longitude}`;
       },
       () => {
-        throw new Error('Permission denied');
+        alert('Please allow permission to access your location');
       }
     );
   });
+  return query;
 };

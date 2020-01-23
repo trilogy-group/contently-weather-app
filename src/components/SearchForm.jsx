@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { setLocation } from '../store/actions';
+import { setLocation, gotError } from '../store/actions';
 import { fetchWeather, getGeoLocation } from '../utils';
+import Results from './Results';
 import '../stylesheets/searchForm.css';
 
 const Search = props => {
+  console.log(Object.keys(props.match.params));
   const { location, fetchWeather, setLocation } = props;
   const { search } = props.history.location;
 
@@ -23,10 +25,8 @@ const Search = props => {
   //displays weather via browser location
   const currentLocation = async () => {
     try {
-      const { coords } = await getGeoLocation();
-      await fetchWeather({
-        geo: { lat: coords.latitude, lon: coords.longitude }
-      });
+      const query = await getGeoLocation();
+      await fetchWeather({ geo: query });
     } catch (error) {
       throw error;
     }
@@ -35,10 +35,12 @@ const Search = props => {
   //check for search in history location in url and fetchs weather.
   useEffect(() => {
     if (search) {
-      fetchWeather({ historyUrl: search });
+      fetchWeather({ geo: search });
     }
   }, [search, fetchWeather]);
 
+  if (Object.keys(props.match.params).length)
+    return <h3>404 Error Path Not Found</h3>;
   return (
     <div>
       <h3>Search for Current Weather and 5 day forcast</h3>
@@ -61,6 +63,7 @@ const Search = props => {
           use current location
         </button>
       </div>
+      <Results />
     </div>
   );
 };
@@ -75,7 +78,8 @@ const mapStateToProps = state => {
 //adding redux dispatch functions to props
 const mapDispatchToProps = dispatch => ({
   setLocation: location => dispatch(setLocation(location)),
-  fetchWeather: location => dispatch(fetchWeather(location))
+  fetchWeather: location => dispatch(fetchWeather(location)),
+  gotError: error => dispatch(gotError(error))
 });
 
 //connecting react to redux

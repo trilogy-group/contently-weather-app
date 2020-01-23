@@ -49,6 +49,7 @@ const reducer = (state = initialState, action) => {
       weather.forecast = forecastArray;
       return { ...state, weather };
     case GOT_ERROR:
+      console.log('got to reducer');
       return { ...state, error: action.error, weather: {} };
     default:
       return state;
