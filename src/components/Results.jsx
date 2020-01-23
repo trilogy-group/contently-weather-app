@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Current from './Current';
-import Forecast from './Forcast';
+import Forecast from './Forecast';
 import '../stylesheets/results.css';
 
 const Results = props => {
