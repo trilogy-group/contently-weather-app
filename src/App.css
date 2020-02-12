@@ -22,4 +22,50 @@ body {
   );
   position: absolute;
   width: 100%;
+  padding: 5rem 0;
+}
+
+
+#app-container {
+  display: flex;
+}
+
+#location-input {
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1rem;
+}
+
+#location-input > * {
+  display: flex;
+  margin: 0.5rem 0;
+  flex: 1;
+}
+
+.radio {
+  display: flex;
+  justify-content: center;
+  padding-right: 0.5rem;
+}
+
+#weather-display  {
+  display:  flex;
+  height: 100%;
+  overflow: scroll;
+}
+
+.daily-weather {
+  flex: 1;
+  color: black;
+  margin: 1rem;
+  text-align: left;
+}
+
+#big-button {
+  width: 150px;
+  height: 50px;
+  color: white;
+  background-color: black;
 }
