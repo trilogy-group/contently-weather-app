@@ -18,7 +18,7 @@ export default function WeatherForecast(props) {
             forecast.map((forecast, index) => (
               <div key={index} className="forecast-segment">
                 <p>{forecast.dateTime}</p>
-                <img src={forecast.iconLink} />
+                <img src={forecast.iconLink} alt={forecast.main} />
                 <p>{forecast.description}</p>
                 {
                   unit === "imperial" ?

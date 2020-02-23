@@ -82,6 +82,22 @@ class App extends React.Component {
     this.handleForecastState(cityName, unit)
   }
 
+  handleClear = () => {
+    if (this.state.cityName) {
+      this.setState({
+        cityName: "",
+        currentWeather: {
+          main: "",
+          description: "",
+          temp: "",
+          windSpeed: "",
+          iconLink: ""
+        },
+        forecast: []
+      })
+    }
+  }
+
   handleView = (e) => {
     e.preventDefault()
     const view = e.target.id === "current-button" ? "current" : "forecast";
@@ -115,10 +131,12 @@ class App extends React.Component {
         <Header
           view={view}
           unit={unit}
+          currentWeather={currentWeather}
           handleUnit={this.handleUnit}
           handleChange={this.handleChange}
           handleClick={this.handleClick}
           handleView={this.handleView}
+          handleClear={this.handleClear}
         />
         <main>
           <WeatherCurrent

@@ -11,10 +11,10 @@ export default function WeatherCurrent(props) {
   return (
     <>
       {
-        currentWeather.main && view === "current" &&
+        cityName && currentWeather.main && view === "current" &&
         <div id="current">
           <h3>{cityName} Weather:</h3>
-          <img src={currentWeather.iconLink} />
+          <img src={currentWeather.iconLink} alt={currentWeather.main} />
           <p>{currentWeather.description}</p>
           {
             unit === "imperial" ?
