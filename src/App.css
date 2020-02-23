@@ -17,19 +17,77 @@ body {
   color: white;
   background-image: linear-gradient(
     to right,
-    rgba(255, 0, 0, 0.5),
-    rgba(255, 255, 0, 0.5)
+    rgba(255, 0, 0, 0.8),
+    rgba(255, 255, 0, 0.8)
   );
   position: absolute;
   width: 100%;
 }
 
+/* header */
 #Layer_1 {
   width: 50px;
+  margin-right: 20px;
 }
 
 h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 10px 0;
+}
+
+header {
+  position: fixed;
+  min-height: 150px;
+  width: 100%;
+  border-bottom: 1px solid white;
+  background-color: #000033;
+}
+
+header input {
+  height: 30px;
+  width: 160px;
+  padding: 0 0 0 5px;
+  box-sizing: border-box;
+}
+
+header button {
+  height: 30px;
+  width: 80px;
+  padding: 0;
+  background-color: lightgray;
+}
+
+header a {
+  display: inline-block;
+  font-size: 14px;
+  margin: 20px 50px;
+  color: white;
+  text-decoration: none;
+}
+
+.current-link > :first-child {
+  border-bottom: 2px solid white;
+}
+
+.forecast-link > :nth-child(2) {
+  border-bottom: 2px solid white;
+}
+
+/* main */
+
+main {
+  padding-top: 170px;
+  padding-bottom: 100px;
+}
+
+.forecast-segment {
+  width: 80%;
+  margin: 20px auto;
+  border-bottom: 1px solid white;
+}
+
+.forecast-segment:last-of-type {
+  border-bottom: none;
 }
