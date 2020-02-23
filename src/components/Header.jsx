@@ -17,7 +17,7 @@ export default function Header(props) {
     <header>
       <h1><Logo />Weather</h1>
       <div>
-        <input autoFocus type="text" name="cityName" onChange={handleChange} onClick={handleClear} placeholder="Enter City... " />
+        <input autoFocus required type="text" name="cityName" onChange={handleChange} onClick={handleClear} placeholder="Enter City... " />
         <button onClick={handleClick}>Get Weather</button>
       </div>
       {currentWeather.main &&
