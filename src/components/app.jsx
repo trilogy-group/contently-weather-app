@@ -1,5 +1,4 @@
 import React from "react";
-import { ReactComponent as Logo } from "../images/sun.svg";
 import "../App.css";
 import { getWeather, getForecast } from '../utils.js';
 import Header from './Header';
@@ -18,7 +17,7 @@ class App extends React.Component {
     },
     forecast: [],
     view: "current",
-    unit: "metric"
+    unit: "imperial"
   }
 
   async componentDidMount() {
@@ -35,7 +34,6 @@ class App extends React.Component {
 
   handleWeatherState = async (cityName, unit) => {
     const response = await getWeather(cityName, unit)
-    console.log(response)
     const { main, description, icon } = response.weather[0]
     const iconLink = `http://openweathermap.org/img/wn/${icon}@2x.png`
     const temp = Math.round(response.main.temp)
@@ -116,6 +114,7 @@ class App extends React.Component {
       <div>
         <Header
           view={view}
+          unit={unit}
           handleUnit={this.handleUnit}
           handleChange={this.handleChange}
           handleClick={this.handleClick}

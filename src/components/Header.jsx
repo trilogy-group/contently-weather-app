@@ -1,8 +1,10 @@
 import React from 'react';
+import { ReactComponent as Logo } from "../images/sun.svg";
 
 export default function Header(props) {
   const {
     view,
+    unit,
     handleUnit,
     handleChange,
     handleClick,
@@ -12,14 +14,19 @@ export default function Header(props) {
   return (
     <header>
       <h1><Logo />Weather</h1>
-      <input type="text" name="cityName" onChange={handleChange} placeholder="Enter City... " />
-      <button onClick={handleClick}>Get Weather</button><br />
-      <div id="view-options" className={`${view}-link`} >
+      <div>
+        <input autoFocus type="text" name="cityName" onChange={handleChange} placeholder="Enter City... " />
+        <button onClick={handleClick}>Get Weather</button>
+
+      </div>
+      <div id="unit-options" className={`${unit}-buttons`}>
+        <span id="F" onClick={handleUnit}>&deg;F</span> |
+          <span id="C" onClick={handleUnit}>&deg;C</span>
+      </div>
+      <div id="view-options" className={`${view}-links`} >
         <a href="#" id="current-button" onClick={handleView}>Current</a>
         <a href="#" id="forecast-button" onClick={handleView}>Forecast</a>
       </div>
-      <button id="F" onClick={handleUnit}>&deg;F</button>
-      <button id="C" onClick={handleUnit}>&deg;C</button>
     </header>
   )
 }

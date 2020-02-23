@@ -67,18 +67,41 @@ header a {
   text-decoration: none;
 }
 
-.current-link > :first-child {
+.current-links > :first-child {
   border-bottom: 2px solid white;
 }
 
-.forecast-link > :nth-child(2) {
+.forecast-links > :nth-child(2) {
   border-bottom: 2px solid white;
+}
+
+#unit-options {
+  color: gray;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+#unit-options:hover {
+  cursor: pointer;
+} 
+
+#unit-options > span {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.imperial-buttons > :first-child {
+  color: lightgreen;
+}
+
+.metric-buttons > :nth-child(2) {
+  color: lightgreen;
 }
 
 /* main */
 
 main {
-  padding-top: 170px;
+  padding-top: 200px;
   padding-bottom: 100px;
 }
 
