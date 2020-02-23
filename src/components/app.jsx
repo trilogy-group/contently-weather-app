@@ -128,32 +128,12 @@ class App extends React.Component {
             unit={unit}
             view={view}
           />
-
-          {
-            view === "forecast" && cityName &&
-            <div id="forecast">
-              <h3>{cityName} Forecast:</h3>
-              {
-                forecast.map((forecast, index) => (
-                  <div key={index} className="forecast-segment">
-                    <p>{forecast.dateTime}</p>
-                    <img src={forecast.iconLink} />
-                    <p>{forecast.description}</p>
-                    {
-                      unit === "imperial" ?
-                        <>
-                          <p>temp: {currentWeather.temp}&deg;F</p>
-                          <p>wind: {currentWeather.windSpeed}mph</p>
-                        </> :
-                        <>
-                          <p>temp: {currentWeather.temp}&deg;C</p>
-                          <p>wind: {currentWeather.windSpeed}kph</p>
-                        </>
-                    }
-                  </div>
-                ))}
-            </div>
-          }
+          <WeatherForecast
+            cityName={cityName}
+            forecast={forecast}
+            unit={unit}
+            view={view}
+          />
         </main>
       </div >
     )
