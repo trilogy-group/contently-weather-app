@@ -3,6 +3,8 @@ import { ReactComponent as Logo } from "../images/sun.svg";
 import "../App.css";
 import { getWeather, getForecast } from '../utils.js';
 import Header from './Header';
+import WeatherCurrent from './WeatherCurrent';
+import WeatherForecast from './WeatherForecast';
 
 class App extends React.Component {
   state = {
@@ -120,25 +122,12 @@ class App extends React.Component {
           handleView={this.handleView}
         />
         <main>
-          {
-            currentWeather.main && view === "current" &&
-            <div id="current">
-              <h3>{cityName} Weather:</h3>
-              <img src={currentWeather.iconLink} />
-              <p>{currentWeather.description}</p>
-              {
-                unit === "imperial" ?
-                  <>
-                    <p>temp: {currentWeather.temp}&deg;F</p>
-                    <p>wind: {currentWeather.windSpeed}mph</p>
-                  </> :
-                  <>
-                    <p>temp: {currentWeather.temp}&deg;C</p>
-                    <p>wind: {currentWeather.windSpeed}kph</p>
-                  </>
-              }
-            </div>
-          }
+          <WeatherCurrent
+            cityName={cityName}
+            currentWeather={currentWeather}
+            unit={unit}
+            view={view}
+          />
 
           {
             view === "forecast" && cityName &&
