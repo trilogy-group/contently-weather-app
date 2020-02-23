@@ -2,6 +2,7 @@ import React from "react";
 import { ReactComponent as Logo } from "../images/sun.svg";
 import "../App.css";
 import { getWeather, getForecast } from '../utils.js';
+import Header from './Header';
 
 class App extends React.Component {
   state = {
@@ -111,17 +112,13 @@ class App extends React.Component {
 
     return (
       <div>
-        <header>
-          <h1><Logo />Weather</h1>
-          <input type="text" name="cityName" onChange={this.handleChange} placeholder="Enter City... " />
-          <button onClick={this.handleClick}>Get Weather</button><br />
-          <div id="view-options" className={`${view}-link`} >
-            <a href="#" id="current-button" onClick={this.handleView}>Current</a>
-            <a href="#" id="forecast-button" onClick={this.handleView}>Forecast</a>
-          </div>
-          <button id="F" onClick={this.handleUnit}>&deg;F</button>
-          <button id="C" onClick={this.handleUnit}>&deg;C</button>
-        </header>
+        <Header
+          view={view}
+          handleUnit={this.handleUnit}
+          handleChange={this.handleChange}
+          handleClick={this.handleClick}
+          handleView={this.handleView}
+        />
         <main>
           {
             currentWeather.main && view === "current" &&
