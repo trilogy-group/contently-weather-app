@@ -1,16 +1,18 @@
 import axios from 'axios';
 
-const fetchWeather = async cityName => {
-  const API_KEY = "d29e9cce44012ae03806fcd9edc39a4e"
+const API_KEY = "d29e9cce44012ae03806fcd9edc39a4e"
+
+const getWeather = async cityName => {
   const response = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=imperial`)
   return response.data
 };
 
-const fetchForecast = async cityName => {
-  const API_KEY = "d29e9cce44012ae03806fcd9edc39a4e"
-
+const getForecast = async cityName => {
+  const response = await axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${API_KEY}&units=imperial`)
+  return response.data
 };
 
 export {
-  fetchWeather
+  getWeather,
+  getForecast
 }
