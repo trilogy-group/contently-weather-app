@@ -1,20 +1,18 @@
-# JavaScript Homework
-
-To complete this homework, you will work on a simple weather app in JavaScript. Our expectation is that you timebox the effort to 1 to 4 hours. You may work on any of the stories in the list below, but you are not expected to complete them all. Code quality is more important than quantity, we are more interested in how you approach the problems than how many you solve. Some of the user stories are ambiguous, there are many acceptable solutions, use your judgement.
-
-You may be asked to explain your work and pair with a Contently engineer to further enhance the app.
-
-To submit your homework, please update this README with information about which stories you completed, and submit the features as a pull request. The engineering team will provide feedback via a code review.
-
-## User stories to implement
+## Completed User Stories
+>User can search for weather by city name. Search will request both current weather and 5 day forecast at the same time. Default view is current weather; however, user can easily switch between current weather and forecast views.
 
 - [ ] As a user, I would like to search for the current weather in my area
 - [ ] As a user, I would like to see the 5-day forecast
+
+>City name is added to the URL path upon search. When the App mounts, it checks for a city name in the URL path and gets weather on load. This allows the URL to be shared and have the recipient see the weather.
+
 - [ ] As a user, I would like to share the URL of the weather in my area and see the results
-- [ ] As a user, I would like to toggle between celsius and fahrenheit
+
+> Buttons in the header allow user to switch between Celsuis and Fahrenheit. This works by swapping the units in the API calls between imperial and metric, and resending the HTTP requests.
+
+- [ ] As a user, I would like to toggle between Celsius and Fahrenheit
 
 ## Getting started
-
 Install the dependencies.
 
 ```bash
