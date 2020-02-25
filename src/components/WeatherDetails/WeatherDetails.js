@@ -28,7 +28,7 @@ class WeatherDetails extends React.Component {
               loading: false
             });
           } else {
-            throw data.cod;
+            alert("City name is not valid");
           }
         })
         .catch(err => {
@@ -43,7 +43,6 @@ class WeatherDetails extends React.Component {
 
   render() {
     const weather_info = this.state.data.main;
-    // const result = this.state.data.main && Object.values(this.state.data.main);
     const result =
       weather_info && Object.keys(weather_info).map(key => weather_info[key]);
 
@@ -65,15 +64,12 @@ class WeatherDetails extends React.Component {
             <h2>Weather of a given city: </h2>
             <h4>Temperature {result && result[0]}</h4>
             <h4>Feels like{result && result[1]}</h4>
+            <h4>
+              Description{" "}
+              {this.state.data.weather && this.state.data.weather[0].main}
+            </h4>
           </div>
         )}
-
-        {/* <ul>
-          {result &&
-            result.map(res => {
-              return <h2>{res}</h2>;
-            })}
-        </ul> */}
       </div>
     );
   }
