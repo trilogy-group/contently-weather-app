@@ -3,7 +3,9 @@ import React from "react";
 class WeatherDetails extends React.Component {
   state = {
     data: [],
-    user_city: ""
+    user_city: "",
+    loading: true,
+    error: false
   };
 
   changeInput = e => {
@@ -19,9 +21,23 @@ class WeatherDetails extends React.Component {
         `http://api.openweathermap.org/data/2.5/weather?q=${this.state.user_city}&appid=d29e9cce44012ae03806fcd9edc39a4e&units=imperial`
       )
         .then(response => response.json())
-        .then(console.log(response.status));
-      // .then(data => this.setState({ data }))
-      // .catch(error => console.error("Error : ", error));
+        .then(data => {
+          if (data.cod === 200) {
+            this.setState({
+              data: data,
+              loading: false
+            });
+          } else {
+            throw data.cod;
+          }
+        })
+        .catch(err => {
+          console.log(err);
+          this.setState({
+            loading: false,
+            error: true
+          });
+        });
     }
   };
 
@@ -31,7 +47,7 @@ class WeatherDetails extends React.Component {
     const result =
       weather_info && Object.keys(weather_info).map(key => weather_info[key]);
 
-    console.log(result);
+    console.log(result && result[0]);
 
     return (
       <div>
@@ -43,6 +59,15 @@ class WeatherDetails extends React.Component {
             <button>Get The Weather Info</button>
           </label>
         </form>
+
+        {this.state.data.length !== 0 && (
+          <div>
+            <h2>Weather of a given city: </h2>
+            <h4>Temperature {result && result[0]}</h4>
+            <h4>Feels like{result && result[1]}</h4>
+          </div>
+        )}
+
         {/* <ul>
           {result &&
             result.map(res => {
