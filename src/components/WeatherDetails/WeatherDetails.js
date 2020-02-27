@@ -1,5 +1,6 @@
 import React from "react";
 import Results from "../Results/Results";
+import "./WeatherDetails.css";
 
 class WeatherDetails extends React.Component {
   state = {
@@ -73,11 +74,15 @@ class WeatherDetails extends React.Component {
 
     return (
       <div>
-        <form onSubmit={this.getWeatherInfo}>
-          <label>
+        <form className="form-container" onSubmit={this.getWeatherInfo}>
+          <label style={{ fontSize: "25px", padding: "10px" }}>
             {" "}
             Enter the City{" "}
-            <input onChange={this.changeInput} type="text"></input>
+            <input
+              placeholder="City Name"
+              onChange={this.changeInput}
+              type="text"
+            ></input>
             <button>Get The Weather Info</button>
           </label>
         </form>

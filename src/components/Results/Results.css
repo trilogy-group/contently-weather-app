@@ -1,5 +1,5 @@
 .container {
-  background-color: gray;
+  background-color: #c0c0c0;
   max-width: 30%;
   max-height: 50%;
   box-sizing: border-box;
@@ -22,4 +22,6 @@ p {
   border-radius: 10px;
   padding: 20px;
   color: white;
+  border-style: solid;
+  border-color: #eba900;
 }

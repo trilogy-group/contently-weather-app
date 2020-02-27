@@ -1,0 +1,28 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.form-container label {
+  font-size: 22px;
+  font-weight: 400;
+  color: #989898;
+}
+
+.form-container input {
+  flex: 1;
+  padding: 10px;
+  margin-left: 200px;
+}
+
+.form-container button {
+  display: block;
+  width: 200px;
+  padding: 25px;
+  background-color: #eba900;
+  margin-top: 100px;
+  margin-left: 45%;
+  font-size: 15px;
+  color: #fff;
+}
