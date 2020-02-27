@@ -1,8 +1,11 @@
 import React from "react";
+import Results from "../Results/Results";
 
 class WeatherDetails extends React.Component {
   state = {
-    data: [],
+    temperature: "",
+    fl: "",
+    description: "",
     user_city: "",
     loading: true,
     error: false
@@ -14,39 +17,48 @@ class WeatherDetails extends React.Component {
 
   getWeatherInfo = e => {
     e.preventDefault();
-    if (this.state.user_city.length === 0) {
-      alert("Please enter a city");
-    } else {
-      fetch(
-        `http://api.openweathermap.org/data/2.5/weather?q=${this.state.user_city}&appid=d29e9cce44012ae03806fcd9edc39a4e&units=imperial`
-      )
-        .then(response => response.json())
-        .then(data => {
-          if (data.cod === 200) {
+    const city = this.state.user_city;
+    const API_KEY = "";
+    const API_URL = "";
+
+    this.setState(
+      {
+        weatherDetails: {},
+        loading: true,
+        error: false
+      },
+      () => {
+        fetch(
+          `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=d29e9cce44012ae03806fcd9edc39a4e&units=imperial`
+        )
+          .then(res => res.json())
+          .then(data => {
+            console.log("data is", data);
+            if (data.cod === 200) {
+              this.setState({
+                temperature: data.main.temp,
+                fl: data.main.feels_like,
+                description: data.weather[0].main,
+                loading: false
+              });
+            } else {
+              alert(data.message);
+            }
+          })
+          .catch(err => {
+            console.log(err);
             this.setState({
-              data: data,
-              loading: false
+              loading: false,
+              error: true
             });
-          } else {
-            alert("City name is not valid");
-          }
-        })
-        .catch(err => {
-          console.log(err);
-          this.setState({
-            loading: false,
-            error: true
           });
-        });
-    }
+      }
+    );
   };
 
   render() {
-    const weather_info = this.state.data.main;
-    const result =
-      weather_info && Object.keys(weather_info).map(key => weather_info[key]);
-
-    console.log(result && result[0]);
+    console.log("tmp", this.state.temperature);
+    console.log("desc", this.state.description);
 
     return (
       <div>
@@ -58,17 +70,14 @@ class WeatherDetails extends React.Component {
             <button>Get The Weather Info</button>
           </label>
         </form>
-
-        {this.state.data.length !== 0 && (
-          <div>
-            <h2>Weather of a given city: </h2>
-            <h4>Temperature {result && result[0]}</h4>
-            <h4>Feels like{result && result[1]}</h4>
-            <h4>
-              Description{" "}
-              {this.state.data.weather && this.state.data.weather[0].main}
-            </h4>
-          </div>
+        {this.state.temperature !== "" ? (
+          <Results
+            temp={this.state.tmp}
+            fl={this.state.fl}
+            description={this.state.description}
+          />
+        ) : (
+          ""
         )}
       </div>
     );
