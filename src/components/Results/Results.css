@@ -1,0 +1,25 @@
+.container {
+  background-color: gray;
+  max-width: 30%;
+  max-height: 50%;
+  box-sizing: border-box;
+  border-radius: 15px;
+  margin: auto;
+  padding: 40px;
+  margin-top: 20px;
+}
+
+p {
+  font-size: 24px;
+  font-weight: 300;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container button {
+  background-color: #eba900;
+  box-sizing: border-box;
+  font-size: 16px;
+  border-radius: 10px;
+  padding: 20px;
+  color: white;
+}

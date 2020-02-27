@@ -7,12 +7,23 @@ class WeatherDetails extends React.Component {
     fl: "",
     description: "",
     user_city: "",
+    type: false,
     loading: true,
     error: false
   };
 
   changeInput = e => {
     this.setState({ user_city: e.target.value });
+  };
+
+  changeTmp = e => {
+    e.preventDefault();
+    this.setState({
+      type: !this.state.type,
+      temperature: this.state.type
+        ? parseFloat((this.state.temperature * 9) / 5 + 32).toFixed(2)
+        : parseFloat(((this.state.temperature - 32) * 5) / 9).toFixed(2)
+    });
   };
 
   getWeatherInfo = e => {
@@ -72,9 +83,11 @@ class WeatherDetails extends React.Component {
         </form>
         {this.state.temperature !== "" ? (
           <Results
-            temp={this.state.tmp}
+            temp={this.state.temperature}
             fl={this.state.fl}
             description={this.state.description}
+            type={this.state.type}
+            changeTmp={this.changeTmp}
           />
         ) : (
           ""
