@@ -7,13 +7,22 @@
 .form-container label {
   font-size: 22px;
   font-weight: 400;
-  color: #989898;
+  color: rgb(0, 166, 194);
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.form-container h4 {
+  font-weight: 200;
+  color: rgb(0, 166, 194);
+  font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
 .form-container input {
   flex: 1;
   padding: 10px;
-  margin-left: 200px;
+  width: 150px;
+  margin: auto;
+  padding: 10px;
 }
 
 .form-container button {
@@ -21,8 +30,16 @@
   width: 200px;
   padding: 25px;
   background-color: #eba900;
-  margin-top: 100px;
-  margin-left: 45%;
+  margin: auto;
   font-size: 15px;
   color: #fff;
+}
+
+.weather-button {
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.contently-tag {
+  margin-top: 20px;
 }

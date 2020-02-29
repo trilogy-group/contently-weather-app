@@ -1,5 +1,5 @@
 .container {
-  background-color: #c0c0c0;
+  background-color: rgb(0, 166, 194);
   max-width: 30%;
   max-height: 50%;
   box-sizing: border-box;
@@ -12,7 +12,7 @@
 p {
   font-size: 24px;
   font-weight: 300;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Comic Sans MS", cursive, sans-serif';
 }
 
 .container button {
@@ -24,4 +24,12 @@ p {
   color: white;
   border-style: solid;
   border-color: #eba900;
+}
+
+.result-img {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.container-info {
 }

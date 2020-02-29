@@ -10,7 +10,8 @@ class WeatherDetails extends React.Component {
     user_city: "",
     type: false,
     loading: true,
-    error: false
+    error: false,
+    country: ""
   };
 
   changeInput = e => {
@@ -23,15 +24,18 @@ class WeatherDetails extends React.Component {
       type: !this.state.type,
       temperature: this.state.type
         ? parseFloat((this.state.temperature * 9) / 5 + 32).toFixed(2)
-        : parseFloat(((this.state.temperature - 32) * 5) / 9).toFixed(2)
+        : parseFloat(((this.state.temperature - 32) * 5) / 9).toFixed(2),
+      fl: this.state.type
+        ? parseFloat((this.state.fl * 9) / 5 + 32).toFixed(2)
+        : parseFloat(((this.state.fl - 32) * 5) / 9).toFixed(2)
     });
   };
 
   getWeatherInfo = e => {
+    console.log("key is", process.env.REACT_APP_WEATHER_API_KEY);
     e.preventDefault();
     const city = this.state.user_city;
-    const API_KEY = "";
-    const API_URL = "";
+    const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
     this.setState(
       {
@@ -41,7 +45,7 @@ class WeatherDetails extends React.Component {
       },
       () => {
         fetch(
-          `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=d29e9cce44012ae03806fcd9edc39a4e&units=imperial`
+          `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=imperial`
         )
           .then(res => res.json())
           .then(data => {
@@ -51,7 +55,8 @@ class WeatherDetails extends React.Component {
                 temperature: data.main.temp,
                 fl: data.main.feels_like,
                 description: data.weather[0].main,
-                loading: false
+                loading: false,
+                country: data.sys.country
               });
             } else {
               alert(data.message);
@@ -69,22 +74,21 @@ class WeatherDetails extends React.Component {
   };
 
   render() {
-    console.log("tmp", this.state.temperature);
-    console.log("desc", this.state.description);
-
     return (
       <div>
+        <img
+          className="contently-tag"
+          src="https://3v9p073zptntqyvo83pwbx1h-wpengine.netdna-ssl.com/wp-content/themes/contently-new/images/logo/logo.png"
+        />
         <form className="form-container" onSubmit={this.getWeatherInfo}>
-          <label style={{ fontSize: "25px", padding: "10px" }}>
-            {" "}
-            Enter the City{" "}
-            <input
-              placeholder="City Name"
-              onChange={this.changeInput}
-              type="text"
-            ></input>
-            <button>Get The Weather Info</button>
-          </label>
+          <h4>Location: </h4>
+          <input
+            placeholder="City Name"
+            onChange={this.changeInput}
+            type="text"
+          ></input>
+          <hr />
+          <button className="weather-button">Get The Weather Info</button>
         </form>
         {this.state.temperature !== "" ? (
           <Results
@@ -93,6 +97,8 @@ class WeatherDetails extends React.Component {
             description={this.state.description}
             type={this.state.type}
             changeTmp={this.changeTmp}
+            country={this.state.country}
+            city={this.state.user_city}
           />
         ) : (
           ""
