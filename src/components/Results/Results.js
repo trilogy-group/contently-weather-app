@@ -29,7 +29,7 @@ function Results(props) {
       {console.log(props.description)}
 
       <button onClick={props.changeTmp}>
-        Change to {props.type ? "Celcius" : "Fahrenheit"}
+        Change to {props.type ? "Fahrenheit" : "Celcius"}
       </button>
     </div>
   );
