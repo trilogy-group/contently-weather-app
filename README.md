@@ -7,11 +7,11 @@ You may be asked to explain your work and pair with a Contently engineer to furt
 To submit your homework, please update this README with information about which stories you completed, and submit the features as a pull request. The engineering team will provide feedback via a code review.
 
 ## User stories to implement
-
-- [ ] As a user, I would like to search for the current weather in my area
-- [ ] As a user, I would like to see the 5-day forecast
-- [ ] As a user, I would like to share the URL of the weather in my area and see the results
-- [ ] As a user, I would like to toggle between celsius and fahrenheit
+I completed the following features:
+- [ x ] As a user, I would like to search for the current weather in my area
+- [ x ] As a user, I would like to see the 5-day forecast
+- [ x ] As a user, I would like to share the URL of the weather in my area and see the results
+- [ x ] As a user, I would like to toggle between celsius and fahrenheit
 
 ## Getting started
 
