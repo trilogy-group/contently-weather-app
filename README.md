@@ -8,10 +8,16 @@ To submit your homework, please update this README with information about which 
 
 ## User stories to implement
 
-- [ ] As a user, I would like to search for the current weather in my area
-- [ ] As a user, I would like to see the 5-day forecast
+- [ x ] As a user, I would like to search for the current weather in my area
+- [ x ] As a user, I would like to see the 5-day forecast
 - [ ] As a user, I would like to share the URL of the weather in my area and see the results
-- [ ] As a user, I would like to toggle between celsius and fahrenheit
+- [ x ] As a user, I would like to toggle between celsius and fahrenheit
+
+I chose to omit the third user story as it had the most ambiguous of the requirements, so it was easiest to tackle the straightforward ones first. When the app loads, it'll fetch the data for New York first, but any city can be searched in the search bar up top. I didn't have time to add error handling, so you'll notice an error in the console if you search an invalid city name.
+
+The current weather and the five-day forecast will be shown for the searched city, and you can switch between farenheit and celsius in the dropdown menu.
+
+The UI is very basic, but I did use owfont which is a third party library designed for the OpenWeather API, so this library is able to generate the icons based on the ID of the weather returned from the API.
 
 ## Getting started
 
