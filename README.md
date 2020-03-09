@@ -17,7 +17,7 @@ I chose to omit the third user story as it had the most ambiguous of the require
 
 The current weather and the five-day forecast will be shown for the searched city, and you can switch between farenheit and celsius in the dropdown menu.
 
-The UI is very basic, but I did use owfont which is a third party library designed for the OpenWeather API, so this library is able to generate the icons based on the ID of the weather returned from the API.
+- I was going to use owfont for the icon but then after implementing it, I looked back and realized it was easier to just use the icon provided in the API response.
 
 ## Getting started
 

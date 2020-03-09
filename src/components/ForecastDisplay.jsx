@@ -11,12 +11,12 @@ const ForecastDisplay = ({
 
   const dayDisplays = currentForecastDays.map(day => {
     let date = new Date(day.dt_txt).toDateString("");
-    const icon = `owf owf-${day.weather[0].id} owf-3x`;
+    const iconSrc = `http://openweathermap.org/img/w/${day.weather[0].icon}.png`;
 
     return (
       <div key={day.dt} className="three wide column">
         <h3>{date}</h3>
-        <i className={icon}></i>
+        <img src={iconSrc} alt={day.weather[0].main} />
         <p>
           {selectedFormat === "F"
             ? Math.round(day.main.temp)

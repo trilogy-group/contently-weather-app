@@ -10,7 +10,7 @@ const WeatherDisplay = ({
     return <div>Loading...</div>;
   }
 
-  const icon = `owf owf-${currentWeather.weather[0].id} owf-5x`;
+  const iconSrc = `http://openweathermap.org/img/w/${currentWeather.weather[0].icon}.png`;
 
   return (
     <div className="ui row">
@@ -22,7 +22,11 @@ const WeatherDisplay = ({
             : convertToCelsius(Math.round(currentWeather.main.temp))}{" "}
           °
         </h1>
-        <i className={icon}></i>
+        <img
+          className="current-weather-icon"
+          src={iconSrc}
+          alt={currentWeather.weather[0].main}
+        />
         <p>{currentWeather.weather[0].main}</p>
         <p>
           Feels Like:{" "}
