@@ -1,9 +1,13 @@
 import React from "react";
-import { ReactComponent as Logo } from "../images/sun.svg";
 import "../App.css";
+import WeatherContainer from "./WeatherContainer";
 
 function App() {
-  return <h1>Weather</h1>;
+  return (
+    <div>
+      <WeatherContainer />
+    </div>
+  );
 }
 
 export default App;
