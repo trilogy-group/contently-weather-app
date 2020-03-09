@@ -1,5 +1,6 @@
 import openweather from "./api/openweather";
 
+// in production would want to use an ENV var here
 const API_KEY = "d29e9cce44012ae03806fcd9edc39a4e";
 
 export const fetchWeather = cityName => {
