@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Home from './Home';
 import TopNav from './TopNav';
+import WeatherContainer from './WeatherContainer';
 import '../App.css';
 
 const App = () => {
@@ -11,6 +12,7 @@ const App = () => {
       <TopNav />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/:city" component={WeatherContainer} />
       </Switch>
     </BrowserRouter>
     );
