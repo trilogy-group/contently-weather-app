@@ -21,12 +21,7 @@ body {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
-  background-image: linear-gradient(
-    to right,
-    rgba(255, 0, 0, 0.5),
-    rgba(255, 255, 0, 0.5)
-  );
+  background-color: #edf2f7;
   position: absolute;
   width: 100%;
 }
