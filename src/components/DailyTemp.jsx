@@ -1,3 +1,5 @@
+import React from 'react';
+
 const DailyTemp = (props) => {
   const { city, weatherData } = props;
 
