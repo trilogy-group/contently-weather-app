@@ -1,7 +1,8 @@
-import React from 'react';
-
 const DailyTemp = (props) => {
-  const { city, weatherData } = props;
+  const { city, weatherData, toggleUnitType, isMetric } = props;
+
+  const displayUnit = isMetric ? 'C' : 'F'
+  const switchText = isMetric ? '(Click here to view weather in Farenheit)' : '(Click here to view weather in Celcius)'
 
   return (
     <div className="max-w-md mt-10 m-auto text-center">
@@ -15,7 +16,8 @@ const DailyTemp = (props) => {
             </div>
           </div>
             <h1 className="font-bold">{city}</h1>
-            <h1>{weatherData.temp} ° F</h1>
+            <h1>{weatherData.temp} ° {displayUnit}</h1>
+            <button onClick={toggleUnitType} className="text-base text-blue-600">{switchText}</button>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 const TopNav = () => {
@@ -25,7 +25,7 @@ const TopNav = () => {
   }
 
   const handleCitySearch = () => {
-    history.push(`/${searchInput}`)
+    history.push(`/${searchInput}/imperial`)
   };
 
   return (

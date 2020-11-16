@@ -12,7 +12,7 @@ const App = () => {
       <TopNav />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/:city" component={WeatherContainer} />
+        <Route exact path="/:city/:unit" component={WeatherContainer} />
       </Switch>
     </BrowserRouter>
     );

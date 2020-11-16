@@ -1,7 +1,9 @@
-import React from 'react';
+import { useEffect } from "react";
 
 const Forecast = (props) => {
-  const { forecastData } = props;
+  const { forecastData, isMetric } = props;
+
+  const displayUnit = isMetric ? 'C' : 'F'
 
   return (
     <div className="px-20">
@@ -14,7 +16,7 @@ const Forecast = (props) => {
           <div className="flex-1 flex flex-col pb-4">
           <h3 className="mt-6 mb-4 text-gray-900 text-lg leading-5 font-bold">{data.date}</h3>
             <img className="w-40 h-40 flex-shrink-0 mx-auto" src={data.image} alt="" />
-            <h3 className="mt-6 text-gray-900 text-lg leading-5 font-bold">{data.temp} ° F</h3>
+            <h3 className="mt-6 text-gray-900 text-lg leading-5 font-bold">{data.temp} ° {displayUnit}</h3>
             <span className="text-base">{data.description}</span>
           </div>
         </li>
