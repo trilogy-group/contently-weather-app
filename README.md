@@ -1,5 +1,15 @@
 # Technical Assessment - Javascript and React
 
+## Implementation Summary
+
+There have been no major changes to the application set up. To setup the
+application run 'npm install' and then 'npm start'. During the project I left comments
+to explain some of the decisions that I felt reflected the way that project was completed. To search for a location, enter a valid zip code and hit enter. In order to share a weather report just copy the URL after you have searched for a zip code. To switch between fahrenheit and celcius click the links the 'F' and 'C' buttons at the top.
+
+All of the user stories have been completed however there are definitely many ways to expand funcionality. One of the most important features I feel would be important is a fuzzy search for the weather location. Currently the search feature allows you to search through zip code. It would be a better user experience if users could find the weather with an ambiguous city name, a zipcode and coordinates. In order to implement this feature, I would create a module for the CitySearch component that determines which API query method necessary given their input. This would also require a Rails API to fuzzysearch their query and return the proper city token.
+
+In full disclosure, this is my first time using the React library. My traditional stack is Rails and Vue. There are definitely some conceptual differences between the two which some getting used to. This being said, it was a pleasure learning a new library and I look forward to continuing to using React. Thank you for taking the time to look over codebase.
+
 ## Summary
 
 The purpose of this short assessment is to gain some initial insight in to your

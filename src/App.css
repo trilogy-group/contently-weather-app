@@ -23,3 +23,22 @@ body {
   position: absolute;
   width: 100%;
 }
+
+.week-wrap.with-selected-city {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.day {
+  width: 100%;
+  background: #ffffffe0;
+  color: #222;
+  margin-bottom: 1rem;
+  border-radius: 3px;
+  padding: 1rem;
+}
+
+.day-name-wrap {
+  
+}
