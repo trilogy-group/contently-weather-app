@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 const Forecast = (props) => {
   const { forecastData, isMetric } = props;
 
