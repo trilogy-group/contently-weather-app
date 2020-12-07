@@ -23,3 +23,52 @@ body {
   position: absolute;
   width: 100%;
 }
+
+.app {
+  height: 100%;
+}
+
+.search-bar {
+  margin: 24px;
+}
+
+.local-weather {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.local-weather-title {
+  text-transform: capitalize;
+}
+
+p {
+  margin: 4px 0;
+}
+
+.weekly-forecast {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 24px;
+}
+
+.day-forecast {
+  background: white;
+  height: 300px;
+  width: 200px;
+  border-radius: 16px;
+  color: gray;
+}
+
+.unit-btn {
+  width: 150px;
+  margin: 4px auto;
+  min-height: 30px;
+  background: lightblue;
+  border: none;
+  border-radius: 8px;
+  color: gray;
+  padding: 8px;
+}
