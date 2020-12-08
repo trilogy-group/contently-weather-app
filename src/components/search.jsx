@@ -28,6 +28,7 @@ class Search extends React.Component {
           </label>
           <input type="submit" value="Submit" />
         </form>
+        {/** after a user has clicked submit, render a new LocalWeather component with that city's info */}
         {this.state.renderNewCity ? <Redirect to={`/${this.state.city}`} /> : null}
       </div>
     );

@@ -9,21 +9,25 @@ class LocalWeather extends React.Component {
   constructor(props) {
     super(props);
     this.state = { currentCity: props.city, weather: {}, showError: false, units: "imperial", copied: false };
+    
     this.fetchWeatherData = this.fetchWeatherData.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleCopy = this.handleCopy.bind(this);
-    this.fetchWeatherData(this.props.city.split(", ").join(","), "imperial");
+    
+    // default fetch weather with imperial units
+    if (this.props.city) this.fetchWeatherData(this.props.city.split(", ").join(","), "imperial");
   }
 
   componentDidUpdate() {
+    // when the user enters new city info in the search bar, refetch the weather
     if (this.props.city !== this.state.currentCity) {
       this.fetchWeatherData(this.props.city, this.state.units);
     }
   }
 
   fetchWeatherData(city, unit) {
-    console.warn(city, unit);
     fetchWeather(city, unit).then(data => {
+      // when a city changes and new weather is fetched, also update the currentCity and show link as not copied
       this.setState({ weather: data, currentCity: this.props.city, copied: false });
     }).catch(err => {
       this.setState({showError: true});
@@ -31,6 +35,7 @@ class LocalWeather extends React.Component {
   }
 
   handleClick() {
+    // handles switching imperial to metric and vice versa
     const newUnits = this.state.units === "imperial" ? "metric" : "imperial";
     this.setState({ units: newUnits });
     this.fetchWeatherData(this.props.city.split(", ").join(","), newUnits);
