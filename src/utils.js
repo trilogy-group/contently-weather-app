@@ -1,9 +1,8 @@
 import axios from "axios";
 
-const fetchWeather = cityName => {
-  const API_KEY = "<INSERT_API_KEY>";
-  // TODO: fetch weather forecast from endpoint
-  // from https://openweathermap.org/api
+export const fetchWeather =([lat, long], units) => {
+  const API_KEY = "5450ba50c661a6a67a2fcf6879829874";
+  return axios.get(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=${API_KEY}&units=${units}`);
 };
 
 export const fetchCities = cityName => {
