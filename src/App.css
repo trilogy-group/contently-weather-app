@@ -23,3 +23,11 @@ body {
   position: absolute;
   width: 100%;
 }
+
+#weather-image {
+  background-color: navajowhite;
+}
+
+.unit-checkbox {
+  margin-left: 25px;
+}
