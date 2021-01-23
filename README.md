@@ -17,3 +17,5 @@ This simple app is able to take a US city from the search bar and fetch the curr
 1. Run `npm install`
 1. Run `npm run start`
 1. Navigate to `localhost:3000`
+
+It's also [hosted live on heroku](https://marksun-weather.herokuapp.com/)
