@@ -14,6 +14,6 @@ This simple app is able to take a US city from the search bar and fetch the curr
 
 1. Clone the repo
 1. Navigate to the root directory
-1. Run 'npm install'
-1. Run 'npm run start'
+1. Run `npm install`
+1. Run `npm run start`
 1. Navigate to `localhost:3000`
