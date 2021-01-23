@@ -9,8 +9,6 @@ const CurrentWeather = ({ location, apiKey, unit }) => {
   const [weatherDate, setWeatherDate] = useState("");
 
   useEffect(() => {
-    // use lat and long that were just updated to do api call to get
-    // weather data
     const fetchWeather = async () => {
       const { data } = await axios.get(
         "https://api.openweathermap.org/data/2.5/weather",
