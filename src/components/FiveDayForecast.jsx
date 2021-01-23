@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import WeatherCard from "./WeatherCard";
 
-const FiveDayForecast = ({ lat, lon, apiKey, unit }) => {
+const FiveDayForecast = ({ location, apiKey, unit }) => {
   const [forecastData, setForecastData] = useState([]);
   const NUMBER_OF_MILLISECONDS_IN_ONE_SECOND = 1000;
 
@@ -12,8 +12,7 @@ const FiveDayForecast = ({ lat, lon, apiKey, unit }) => {
         "https://api.openweathermap.org/data/2.5/forecast/daily",
         {
           params: {
-            lat,
-            lon,
+            q: location,
             appid: apiKey,
             units: unit,
             cnt: 6,
@@ -23,14 +22,13 @@ const FiveDayForecast = ({ lat, lon, apiKey, unit }) => {
 
       setForecastData(data.list);
     };
-    if (lat && lon) {
+    if (location) {
       fetchForecast();
     }
-  }, [lat, lon, apiKey, unit]);
+  }, [location, apiKey, unit]);
 
   const renderCards = () => {
     return forecastData.map((data) => {
-      console.log(data);
       const weatherIconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`;
       const weatherDescription = data.weather[0].main;
       const weatherDate = new Date(

@@ -10,7 +10,6 @@ const WeatherCard = ({
   unit,
 }) => {
   const renderUnit = () => {
-    console.log(`unit is ${unit}`);
     if (unit === "imperial") {
       return "°F";
     } else {

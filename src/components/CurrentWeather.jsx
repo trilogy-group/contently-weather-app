@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import WeatherCard from "./WeatherCard";
 
-const CurrentWeather = ({ lat, lon, apiKey, unit }) => {
+const CurrentWeather = ({ location, apiKey, unit }) => {
   const [currentTemp, setCurrentTemp] = useState(null);
   const [weatherIconUrl, setWeatherIconUrl] = useState("");
   const [weatherDescription, setWeatherDescription] = useState("");
@@ -16,8 +16,7 @@ const CurrentWeather = ({ lat, lon, apiKey, unit }) => {
         "https://api.openweathermap.org/data/2.5/weather",
         {
           params: {
-            lat,
-            lon,
+            q: location,
             appid: apiKey,
             units: unit,
           },
@@ -30,10 +29,10 @@ const CurrentWeather = ({ lat, lon, apiKey, unit }) => {
       setWeatherDescription(data.weather[0].main);
       setWeatherDate(new Date().toDateString());
     };
-    if (lat && lon) {
+    if (location) {
       fetchWeather();
     }
-  }, [lat, lon, apiKey, unit]);
+  }, [location, apiKey, unit]);
 
   if (!currentTemp) {
     return null;
