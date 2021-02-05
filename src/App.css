@@ -23,3 +23,18 @@ body {
   position: absolute;
   width: 100%;
 }
+
+.flex-grid {
+  display: flex;
+}
+.col {
+  flex: 1;
+}
+
+li {
+  flex: auto;
+}
+
+ul {
+  list-style: none;
+}
